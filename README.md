@@ -1,2 +1,7 @@
-# tile-editor
-A simple tile editor. Easy to use and support animated tile ! Features: draw tool, erase tool and a fill tool. 
+# Tile Editor
+A simple tile editor made in pygame. Easy to use and support animated tile ! 
+
+# Features 
+1. Draw tool
+2. Erase tool
+3. Filling tool.
