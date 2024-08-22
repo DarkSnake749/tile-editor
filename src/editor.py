@@ -7,10 +7,12 @@ class Editor:
         """Surface of the window"""
         pygame.display.set_caption("Tile editor")
         self.__clock: pygame.time.Clock = pygame.time.Clock()
+
+        self.scale: int = 1
     
         self.__grid_size: tuple[int, int] = grid_size
-        self.__grid: list[pygame.Rect] = self.update_grid((0, 0))
         self.__cell_size = cell_size
+        self.__grid: list[pygame.Rect] = self.update_grid((0, 0))
 
         self.__bg_color: str = "black"
         self.__lines_color: str = "grey"
@@ -24,7 +26,7 @@ class Editor:
 
     def draw(self, grid: list[pygame.Rect], combined_grid: pygame.Rect) -> None:
         for cell in grid:
-            pygame.draw.rect(self.__window, self.__lines_color, (cell.x + combined_grid.x, cell.y + combined_grid.y, self.__cell_size, self.__cell_size), 2)
+            pygame.draw.rect(self.__window, self.__lines_color, pygame.Rect(cell.x + combined_grid.x, cell.y + combined_grid.y, self.__cell_size, self.__cell_size), 1)
     
     def main_loop(self) -> None:
         while True:
