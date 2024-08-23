@@ -15,8 +15,11 @@ class Editor:
         self.__cell_size = cell_size
         self.__grid: list[pygame.Rect] = self.update_grid((0, 0))
 
+        self.__select_grid: list[bool] = [[False for _ in range(grid_size[0])] for _ in range(grid_size[1])]
+
         self.__bg_color: str = "black"
-        self.__lines_color: str = "grey"
+        self.__lines_color: str = "green"
+        self.__select_line_color: str = "white"
 
         self.__tools: list[bool] = [True, False]
     
@@ -76,7 +79,8 @@ class Editor:
                 
                 # Mouse
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    drag = True
+                    drag = True if self.__tools[1] else False
+                    
                 
                 if event.type == pygame.MOUSEBUTTONUP:
                     drag = False
